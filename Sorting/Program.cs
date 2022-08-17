@@ -1,10 +1,12 @@
-﻿using Sorting.MergeSort;
-using Sorting.Utility;
+﻿using Sorting.HeapSort;
+using Sorting.MergeSort;
+using Sorting.Utils;
 
-var mergeSort = new MergeSort();
+var heapSort = new HeapSort();
 
 int[] arr = new int[] { 12, 11, 13, 5, 6, 7 };
 
-mergeSort.Sort(arr, 0, arr.Length - 1);
+heapSort.Sort(arr);
 
-Utility.Print(arr);
+Utils.Print(arr);
+
