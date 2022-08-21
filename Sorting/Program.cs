@@ -1,12 +1,16 @@
-﻿using Sorting.HeapSort;
-using Sorting.MergeSort;
-using Sorting.Utils;
+﻿using Sorting.HeapSort.PriorityQueue;
 
-var heapSort = new HeapSort();
+var minPriorityQueue = new PriorityQueue<Schedule>(true);
 
-int[] arr = new int[] { 12, 11, 13, 5, 6, 7 };
+minPriorityQueue.Enqueue(new Schedule(4));
+minPriorityQueue.Enqueue(new Schedule(1));
+minPriorityQueue.Enqueue(new Schedule(3));
+minPriorityQueue.Enqueue(new Schedule(2));
+minPriorityQueue.Enqueue(new Schedule(16));
+minPriorityQueue.Enqueue(new Schedule(9));
+minPriorityQueue.Enqueue(new Schedule(10));
+minPriorityQueue.Enqueue(new Schedule(14));
+minPriorityQueue.Enqueue(new Schedule(8));
+minPriorityQueue.Enqueue(new Schedule(7));
 
-heapSort.Sort(arr);
-
-Utils.Print(arr);
-
+Console.WriteLine(minPriorityQueue);
