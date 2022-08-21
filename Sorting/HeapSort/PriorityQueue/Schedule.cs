@@ -4,25 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sorting.HeapSort.PriorityQueue
+namespace Sorting.HeapSort.PriorityQueue;
+
+internal class Schedule : IComparable<Schedule>
 {
-    internal class Schedule : IComparable<Schedule>
+    private int _priority;
+
+    public Schedule(int priority)
     {
-        private int _priority;
+        _priority = priority;
+    }
 
-        public Schedule(int priority)
+    public int CompareTo(Schedule? other)
+    {
+        if (other == null)
         {
-            _priority = priority;
+            return 1;
         }
 
-        public int CompareTo(Schedule? other)
-        {
-            if (other == null)
-            {
-                return 1;
-            }
-
-            return this._priority.CompareTo(other._priority);
-        }
+        return this._priority.CompareTo(other._priority);
     }
 }
+
