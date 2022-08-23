@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sorting.CountingSort;
+namespace Sorting.SortingAlgorithms;
 
 internal class CountingSort
 {
     public void Sort(int[] data)
     {
-        int max = Int32.MinValue;
+        int max = int.MinValue;
 
         for (int i = 0; i < data.Length; i++)
         {
             if (data[i] > max)
-            { 
+            {
                 max = data[i];
             }
         }

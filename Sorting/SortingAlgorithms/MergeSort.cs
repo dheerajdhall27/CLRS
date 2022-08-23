@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sorting.MergeSort;
+namespace Sorting.SortingAlgorithms;
 
 internal class MergeSort
 {
@@ -22,7 +22,7 @@ internal class MergeSort
     private void Merge(int[] data, int left, int mid, int right)
     {
         int[] leftArray = new int[mid - left + 1];
-        
+
         int[] rightArray = new int[right - mid];
 
         for (int i = 0; i < leftArray.Length; i++)
@@ -42,7 +42,7 @@ internal class MergeSort
         while (leftArrayIndex < leftArray.Length && rightArrayIndex < rightArray.Length)
         {
             if (leftArray[leftArrayIndex] <= rightArray[rightArrayIndex])
-            { 
+            {
                 data[arrayIndex] = leftArray[leftArrayIndex];
                 leftArrayIndex++;
             }

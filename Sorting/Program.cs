@@ -1,11 +1,10 @@
 ﻿
 
-using Sorting.CountingSort;
-using Sorting.QuickSort;
+using Sorting.SortingAlgorithms;
 
-var countingSort = new CountingSort();
+var bucketSort = new BucketSort(5);
 
-int[] arr = new int[] {0, 5, 4, 3, 2, 1, 0 };
-countingSort.Sort(arr);
+int[] arr = new int[] {0, 5, 10, 4, 6, 10, 20, 40, 25, 30, 50, 60 };
+bucketSort.Sort(arr);
 
 Console.WriteLine(arr);

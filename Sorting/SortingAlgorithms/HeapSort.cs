@@ -1,6 +1,6 @@
 ﻿using static Sorting.Utils.Utils;
 
-namespace Sorting.HeapSort;
+namespace Sorting.SortingAlgorithms;
 
 public class HeapSort
 {
@@ -18,11 +18,11 @@ public class HeapSort
     }
 
     private void BuildMaxHeap(int[] data)
-    { 
+    {
         int heapSize = data.Length;
 
         int mid = data.Length / 2;
-        for(int i = mid; i >= 0; i--)
+        for (int i = mid; i >= 0; i--)
         {
             MaxHeapify(data, i, heapSize);
         }
@@ -34,7 +34,7 @@ public class HeapSort
 
         int rightChild = 2 * index + 2;
 
-        int largestIndex = 0;
+        var largestIndex = 0;
 
         if (leftChild < heapSize && data[leftChild] > data[index])
         {

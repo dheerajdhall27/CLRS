@@ -1,6 +1,6 @@
 ﻿using static Sorting.Utils.Utils;
 
-namespace Sorting.QuickSort;
+namespace Sorting.SortingAlgorithms;
 
 internal class QuickSort
 {
