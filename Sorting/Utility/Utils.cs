@@ -1,4 +1,4 @@
-﻿namespace Sorting.Utils;
+﻿namespace Sorting.Utility;
 
 public class Utils
 {

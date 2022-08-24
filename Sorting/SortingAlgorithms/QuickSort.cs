@@ -1,4 +1,4 @@
-﻿using static Sorting.Utils.Utils;
+﻿using static Sorting.Utility.Utils;
 
 namespace Sorting.SortingAlgorithms;
 

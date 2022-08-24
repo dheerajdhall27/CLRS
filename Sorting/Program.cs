@@ -1,10 +1,10 @@
 ﻿
+using Sorting.SelectionAlgorithm;
 
-using Sorting.SortingAlgorithms;
+var randomizedSelect = new RandomizedSelect();
 
-var bucketSort = new BucketSort(5);
+int[] arr = new int[] { 4, 2, 3, 1, 8, 9, 0 };
 
-int[] arr = new int[] {0, 5, 10, 4, 6, 10, 20, 40, 25, 30, 50, 60 };
-bucketSort.Sort(arr);
+int value = randomizedSelect.SelectNthIndex(arr, 0, arr.Length - 1, 5);
 
-Console.WriteLine(arr);
+Console.WriteLine(value);
