@@ -1,10 +1,12 @@
-﻿using System.Text;
+﻿using DataStructures.ElementaryDataStructures.LinkedLists.Enumerators;
+using System.Collections;
+using System.Text;
 
 namespace DataStructures.ElementaryDataStructures.LinkedLists;
 
-internal class SinglyLinkedList<T> : ILinkedList<T>
+internal class SinglyLinkedList<T> : ILinkedList<T>, IEnumerable<T>
 {
-    private Node<T>? _head { get; set; } = null;
+    private LinkedListNode<T>? _head { get; set; } = null;
 
     private int _listLength;
 
@@ -15,7 +17,7 @@ internal class SinglyLinkedList<T> : ILinkedList<T>
 
     public void Insert(T element)
     {
-        Node<T> node = new Node<T>(element);
+        LinkedListNode<T> node = new LinkedListNode<T>(element);
         _listLength++;
 
         if(_head == null)
@@ -50,7 +52,7 @@ internal class SinglyLinkedList<T> : ILinkedList<T>
             currentIndex++;
         }
 
-        var newNode = new Node<T>(element);
+        var newNode = new LinkedListNode<T>(element);
 
         newNode.Next = node.Next;
         node.Next = newNode;
@@ -71,29 +73,62 @@ internal class SinglyLinkedList<T> : ILinkedList<T>
         return element;
     }
 
-    public int Search(T element)
+    public void Delete(T element)
+    {
+        if(_head == null)
+        {
+            return;
+        }
+
+        var head = _head;
+
+        LinkedListNode<T>? previous = default;
+
+        EqualityComparer<T> comparer = EqualityComparer<T>.Default;
+
+        if(comparer.Equals(head.Value, element))
+        {
+            DeleteFirst();
+            return;
+        }
+
+        previous = head;
+        head = head.Next;
+
+        while(head != null)
+        {
+            if(comparer.Equals(head.Value, element))
+            {
+                previous.Next = head.Next;
+                head.Next = null;
+                break;
+            }
+
+            head = head.Next;
+        }
+    }
+
+    public LinkedListNode<T>? Search(T element)
     {
         var node = _head;
-        
-        int index = 0;
+        EqualityComparer<T> comparer = EqualityComparer<T>.Default;
 
         while (node != null)
-        { 
-            if(node.Value.Equals(element))
+        {
+            if (comparer.Equals(node.Value, element))
             {
-                return index;
+                return node;
             }
 
             node = node.Next;
-            index++;
         }
 
-        return -1;
+        return null;
     }
 
     public override String ToString()
     {
-        Node<T>? node = _head;
+        LinkedListNode<T>? node = _head;
 
         var stringBuilder = new StringBuilder();
 
@@ -104,6 +139,16 @@ internal class SinglyLinkedList<T> : ILinkedList<T>
         }
 
         return stringBuilder.ToString();
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        return new LinkedListEnumerator<T>(_head);
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataStructures.ElementaryDataStructures.LinkedLists;
+﻿namespace DataStructures.ElementaryDataStructures.LinkedLists;
 
 internal interface ILinkedList<T>
 {
@@ -14,6 +8,8 @@ internal interface ILinkedList<T>
 
     T? DeleteFirst();
 
-    int Search(T element);
+    void Delete(T element);
+
+    LinkedListNode<T>? Search(T element);
 }
 

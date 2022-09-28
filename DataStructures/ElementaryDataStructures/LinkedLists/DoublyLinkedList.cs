@@ -1,10 +1,11 @@
 ﻿using System.Text;
+using System.Threading;
 
 namespace DataStructures.ElementaryDataStructures.LinkedLists;
 
 internal class DoublyLinkedList<T> : ILinkedList<T>
 {
-    private Node<T> _sentinel { get; init; }
+    private LinkedListNode<T> _sentinel { get; init; }
 
     private int _listLength;
 
@@ -12,7 +13,7 @@ internal class DoublyLinkedList<T> : ILinkedList<T>
     {
         T? element = default(T);
 
-        _sentinel = new Node<T>(element);
+        _sentinel = new LinkedListNode<T>(element);
         _sentinel.Next = null;
         _sentinel.Previous = null;
 
@@ -37,7 +38,7 @@ internal class DoublyLinkedList<T> : ILinkedList<T>
 
     public void Insert(T element)
     {
-        var newNode = new Node<T>(element);
+        var newNode = new LinkedListNode<T>(element);
 
         _listLength++;
 
@@ -80,21 +81,34 @@ internal class DoublyLinkedList<T> : ILinkedList<T>
             index--;
         }
 
-        var newNode = new Node<T>(element);
+        var newNode = new LinkedListNode<T>(element);
 
         newNode.Next = node.Next;
         node.Next = newNode;
         newNode.Previous = node;
     }
 
-    public int Search(T element)
+    public LinkedListNode<T>? Search(T element)
     {
-        throw new NotImplementedException();
+        var node = _sentinel.Next;
+        EqualityComparer<T> comparer = EqualityComparer<T>.Default;
+
+        while (node != null)
+        {
+            if (comparer.Equals(node.Value, element))
+            {
+                return node;
+            }
+
+            node = node.Next;
+        }
+
+        return null;
     }
 
     public override String ToString()
     {
-        Node<T>? node = _sentinel.Next;
+        LinkedListNode<T>? node = _sentinel.Next;
 
         var stringBuilder = new StringBuilder();
 
@@ -105,6 +119,11 @@ internal class DoublyLinkedList<T> : ILinkedList<T>
         }
 
         return stringBuilder.ToString();
+    }
+
+    public void Delete(T element)
+    {
+        throw new NotImplementedException();
     }
 }
 

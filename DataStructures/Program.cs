@@ -1,9 +1,14 @@
-﻿using DataStructures.ElementaryDataStructures.LinkedLists;
+﻿using DataStructures.HashTables;
 
-var linkedList = new DoublyLinkedList<int>();
+var hashTable = new HashTable<int, int>();
 
-linkedList.Insert(1);
-linkedList.Insert(2);
-linkedList.Insert(3);
+hashTable.Insert(1, 1);
+hashTable.Insert(2, 1);
+hashTable.Insert(3, 1);
+hashTable.Insert(4, 1);
 
-Console.WriteLine(linkedList);
+Console.WriteLine(hashTable.Contains(2));
+
+hashTable.Remove(2);
+
+Console.WriteLine(hashTable.Contains(2));
