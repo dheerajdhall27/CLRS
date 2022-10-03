@@ -1,10 +1,10 @@
 ﻿namespace DataStructures.ElementaryDataStructures;
 
-internal class Stack<T> : IStack<T>
+internal class StackCustom<T> : IStackCustom<T>
 {
     private IList<T> _stack;
 
-    public Stack()
+    public StackCustom()
     {
         _stack = new List<T>();
     }
@@ -26,6 +26,11 @@ internal class Stack<T> : IStack<T>
     public void Push(T element)
     {
         _stack.Add(element);
+    }
+
+    public int Size()
+    {
+        return _stack.Count;
     }
 
     public bool StackEmpty()

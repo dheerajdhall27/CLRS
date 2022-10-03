@@ -1,14 +1,16 @@
-﻿using DataStructures.HashTables;
+﻿
+using DataStructures.Trees.BinarySearchTree;
 
-var hashTable = new HashTable<int, int>();
+BinarySearchTree<int> bst = new BinarySearchTree<int>();
 
-hashTable.Insert(1, 1);
-hashTable.Insert(2, 1);
-hashTable.Insert(3, 1);
-hashTable.Insert(4, 1);
+bst.Insert(5);
+bst.Insert(2);
+bst.Insert(1);
+bst.Insert(3);
+bst.Insert(7);
+bst.Insert(6);
+bst.Insert(8);
 
-Console.WriteLine(hashTable.Contains(2));
+var list = bst.GetPredecessor(5);
 
-hashTable.Remove(2);
-
-Console.WriteLine(hashTable.Contains(2));
+Console.WriteLine(list);
