@@ -1,6 +1,4 @@
 ﻿using DataStructures.ElementaryDataStructures;
-using System.Runtime.InteropServices;
-using System.Runtime.Intrinsics.X86;
 
 namespace DataStructures.Trees.BinarySearchTree;
 
@@ -70,6 +68,7 @@ internal class BinarySearchTree<T> : ITree<T>
     }
 
     #region Inorder Traversal
+
     public List<T> Inorder()
     {
         if (_root == null)
@@ -150,6 +149,7 @@ internal class BinarySearchTree<T> : ITree<T>
     #endregion Inorder Traversal
 
     #region Preorder Traversal
+
     public List<T> Preorder()
     {
         if (_root == null)
@@ -213,6 +213,7 @@ internal class BinarySearchTree<T> : ITree<T>
     #endregion
 
     #region Postorder Traversal
+
     public List<T> Postorder()
     {
         if (_root == null)
